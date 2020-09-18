@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Form1 from './data/form1.json';
+import Form2 from './data/form2.json'
+
+import RowInput from './UI/RowInput/RowInput';
+
+class App extends Component {
+
+	render() {
+		return (
+			<div className="App">
+				<form action="" >
+					{Form1.map((row) => {
+						return <RowInput className='row' row={row}/>;
+					})}
+          <button className="btn btn-primary" type="submit">Submit</button>
+				</form>
+
+        <form action="" >
+					{Form2.map((row) => {
+						return <RowInput className='row' row={row}/>;
+					})}
+          <button className="btn btn-primary" type="submit">Submit</button>
+				</form>
+        
+			</div>
+		);
+	}
 }
 
 export default App;
